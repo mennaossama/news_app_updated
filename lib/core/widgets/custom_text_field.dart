@@ -5,10 +5,12 @@ import 'package:news_app_updated/core/styles/app_colors.dart';
 class CustomTextField extends StatelessWidget {
   final String? hintText;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final double? width;
   final bool? isPassword;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final void Function(String)? onFieldSubmitted;
   const CustomTextField(
       {super.key,
       this.hintText,
@@ -16,7 +18,9 @@ class CustomTextField extends StatelessWidget {
       this.width,
       this.isPassword,
       this.controller,
-      this.validator});
+      this.validator,
+      this.prefixIcon,
+      this.onFieldSubmitted});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +32,7 @@ class CustomTextField extends StatelessWidget {
             autofocus: false,
             obscureText: isPassword ?? false,
             cursorColor: AppColors.blackColor,
+            onFieldSubmitted: onFieldSubmitted,
             decoration: InputDecoration(
               hintText: hintText ?? "",
               hintStyle: TextStyle(
@@ -52,8 +57,9 @@ class CustomTextField extends StatelessWidget {
                 borderSide: const BorderSide(color: Colors.red, width: 1),
               ),
               filled: true,
-              fillColor: const Color(0xffF7F8F9),
+              fillColor: const Color(0xffF0EFF0),
               suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
             )));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app_updated/core/constants/app_constants.dart';
 import 'package:news_app_updated/core/networking/dio_helper.dart';
 import 'package:news_app_updated/core/routing/router_generation.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -12,6 +13,7 @@ void main() async {
       supportedLocales: [Locale('en'), Locale('ar')],
       path: 'assets/translations',
       fallbackLocale: Locale('en'),
+      startLocale: Locale(AppConstants.language),
       child: const MyApp()));
 }
 
